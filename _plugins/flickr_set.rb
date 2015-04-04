@@ -57,16 +57,15 @@ module Jekyll
     end
 
     def render(context)
-      html = "<#{@config['gallery_tag']} class=\"#{@config['gallery_class']}\">"
+      html = "<#{@config['gallery_tag']} class=\"#{@config['gallery_class']}\"><div class=\"row\">"
 
       photos.each do |photo|
-        html << "<a href=\"#{photo.url(@config['a_href'])}\" target=\"#{@config['a_target']}\">"
+        html << "<a href=\"#{photo.url_k}\" target=\"#{@config['a_target']}\">"
         html << "  <img src=\"#{photo.thumbnail_url}\" rel=\"#{@config['image_rel']}\"/>"
         html << "</a>"
       end
 
-      html << "</#{@config['gallery_tag']}>"
-
+      html << "</div></#{@config['gallery_tag']}>"
       return html
     end
 
